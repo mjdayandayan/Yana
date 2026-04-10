@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Yana!</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: white;
+      overflow: hidden;
+    }
+
+    .container {
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      color: #ff6f91;
+      cursor: pointer;
+    }
+
+    #typing {
+      margin-top: 20px;
+      font-size: 1.5em;
+      min-height: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Happy Birthday, Yanners!</h1>
+
+  <button onclick="startSurprise()">Click this babe</button>
+
+  <div id="typing"></div>
+</div>
+
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const message = "You're still as beautiful as the day I met you. Happy bornday babydoll and I hope you'll enjoy it mwah <33";
+
+let i = 0;
+
+function typeWriter() {
+  if (i < message.length) {
+    document.getElementById("typing").innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeWriter, 50);
+  }
+}
+
+function startSurprise() {
+  document.getElementById("typing").innerHTML = "";
+  i = 0;
+  typeWriter();
+
+  // Play music (fix for browsers that block autoplay)
+  const music = document.getElementById("bgMusic");
+  music.play().catch(() => {
+    console.log("Autoplay blocked until user interaction");
+  });
+}
+</script>
+
+</body>
+</html>
